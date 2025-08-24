@@ -16,7 +16,7 @@
     <h1>Email Spam Classifier</h1>
     <form method="post" action="/predict">
         <textarea name="content" placeholder="Enter Your Email Here" rows="12" cols="60" 
-        autocomplete="off">{{ email }}</textarea>
+        autocomplete="off">{{ email or '' }}</textarea>
         <div>
             <button>Check Spam</button>
             <a href="/">Reset </a>

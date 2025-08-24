@@ -17,7 +17,9 @@ def predict():
 @app.route('/api/predict', methods=['POST'])
 def predict_api():
     data = request.get_json(force=True)  # Get data posted as a json
-    email = data['content']
+    email = data.get('content')
+    if not email:
+        return jsonify({"error": "No content provided"}), 400
     prediction = make_prediction(email)
     return jsonify({'prediction': prediction, 'email': email})  # Return prediction
 
